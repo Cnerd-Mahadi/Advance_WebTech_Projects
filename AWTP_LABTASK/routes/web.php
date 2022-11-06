@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\CreatorController;
+use App\Http\Controllers\LearnController;
+use App\Http\Controllers\RetainController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegController;
@@ -18,20 +21,48 @@ use App\Http\Controllers\CourseController;
 */
 
 Route::get('/', function () {
-    return view('login');
+    return view('dashboard');
 });
 
-Route::get('/studentSection',[StudentController::class, 'dashboard'])->name('studentSection')->middleware('validUser');
-Route::get('/studentCard',[StudentController::class, 'studentCard'])->name('studentCard')->middleware('validUser');
-Route::get('/course',[CourseController::class, 'course'])->name('course')->middleware('validUser');
+Route::get('/pros', function () {
+    return view('pros');
+});
+
+Route::get('/sum', function () {
+    return view('summary');
+});
+
+Route::get('/td', function () {
+    return view('topic_detail');
+});
 Route::get('/about', function () {
     return view('about');
 })->name('about');
 
-Route::get('/login',[LoginController::class,'login'])->name('login');
+Route::get('/student/dashboard',[StudentController::class, 'dashboard'])->name('studentDash');
+Route::get('/student/learnSection',[LearnController::class, 'learn'])->name('learn');
+Route::get('/student/subject/{id}',[LearnController::class, 'subject'])->name('subject');
+Route::get('/student/topic/{id}',[LearnController::class, 'topic'])->name('topic');
+Route::get('/student/retainSection',[RetainController::class, 'retain'])->name('retain');
+Route::get('/student/summary',[RetainController::class, 'summary'])->name('summary');
+Route::post('/student/summarySubmit',[RetainController::class, 'summarySubmit'])->name('summarySubmit');
+
+
+
+
+Route::get('/creator/dashboard',[CreatorController::class, 'dashboard'])->name('creatorDash');
+Route::post('/creator/content',[CreatorController::class, 'createContentSubmit'])->name('content');
+Route::get('/creator/contentDetail/{id}',[CreatorController::class, 'contentDetail'])->name('contentDetail');
+
+
+
+Route::get('/login',[LoginController::class,'loginShow'])->name('login');
 Route::post('/login',[LoginController::class,'loginSubmit'])->name('login');
 Route::get('/logout',[LoginController::class,'logout'])->name('logout');
 
-Route::get('/register',[RegController::class,'register'])->name('register');
-Route::post('/register',[RegController::class,'registerSubmit'])->name('register');
+Route::get('/student/signUp',[RegController::class,'signUpShow'])->name('signUp');
+Route::post('/student/signUp',[RegController::class, 'signUpSubmit'])->name('signUp');
+
+Route::get('/creator/signup',[RegController::class,'signUpShowCreator'])->name('signUpCreator');
+Route::post('/creator/signup',[RegController::class, 'signUpSubmitCreator'])->name('signUpCreator');
 

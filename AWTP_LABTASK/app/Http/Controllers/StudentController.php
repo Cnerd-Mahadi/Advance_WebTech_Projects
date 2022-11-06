@@ -8,10 +8,8 @@ class StudentController extends Controller
 {
 
     public function dashboard(){
-        return view('section');
+        return view('student.dashboard');
     }
 
-    public function studentCard(){
-        return view('work_card');
-    }
+
 }
