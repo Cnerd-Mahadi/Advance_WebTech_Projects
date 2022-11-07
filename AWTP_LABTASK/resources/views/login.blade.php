@@ -9,7 +9,7 @@
 
                 </div>
                 <div class="col-lg-6 order-1 order-lg-2">
-                    <img src="/img/hero-img.svg" class="img-fluid" alt="" data-aos="zoom-out" data-aos-delay="100">
+                    <img src="img/hero-img.svg" class="img-fluid" alt="" data-aos="zoom-out" data-aos-delay="100">
                 </div>
             </div>
         </div>
@@ -36,6 +36,14 @@
                                 @error('password')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
+
+                                <div class="row gy-6">
+                                    <div class="form-group">
+                                        <label class="checkbox-wrap checkbox-primary">Remember Me
+                                                        <input type="checkbox" name="remember">
+                                                        <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
 
                                 <div class="row gy-6" data-aos="fade-in">
                                     <div class="form-group">

@@ -53,7 +53,8 @@ class Kernel extends HttpKernel
      * @var array<string, class-string|string>
      */
     protected $routeMiddleware = [
-        'validUser' => \App\Http\Middleware\UserValidation::class,
+        'validStudent' => \App\Http\Middleware\StudentValidation::class,
+        'validCreator' => \App\Http\Middleware\CreatorValidation::class,
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'auth.session' => \Illuminate\Session\Middleware\AuthenticateSession::class,

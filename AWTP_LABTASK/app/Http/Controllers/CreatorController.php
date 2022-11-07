@@ -18,6 +18,7 @@ class CreatorController extends Controller
         return view('creator.dash_creator')
                 ->with('subjects', $subjects)
                 ->with('contents', $contents);
+       // return $contents;
 
     }
 
@@ -30,8 +31,6 @@ class CreatorController extends Controller
         ]
     );
 
-
-        $request->file('image')->store('content');
         $topic = new Topic();
         $topic->title = $request->title;
         $topic->image = "A";
@@ -39,12 +38,13 @@ class CreatorController extends Controller
         $topic->subject_id = $request->subject;
         $topic->save();
 
-
         $topicTemp = Topic::where('detail', $topic->detail)->first();
 
         $imageName = "IMG_CONTENT_ID_".$topicTemp->topic_id.".".$request->file('image')->getClientOriginalExtension();
         Topic::where('topic_id', $topicTemp->topic_id)
                                 ->update(['image' => $imageName]);
+
+        $request->file('image')->storeAs('public/content', $imageName);
 
         $content = new Content();
         $content->subject_id = $request->subject;

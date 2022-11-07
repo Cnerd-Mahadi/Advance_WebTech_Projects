@@ -4,24 +4,24 @@
     <div class="container">
         <div class="row gy-4">
             <div class="col-lg-5 col-md-12 footer-info">
-                <a href="index.html" class="logo d-flex align-items-center">
+                <a href="{{ route('about') }}" class="logo d-flex align-items-center">
                     <span>LITOL</span>
                 </a>
                 <p>Live To Learn</p>
                 <div class="social-links d-flex mt-4">
-                    <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-                    <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-                    <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-                    <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+                    <a href="https://www.facebook.com/cnerdmahadi" class="twitter"><i class="bi bi-twitter"></i></a>
+                    <a href="https://www.facebook.com/cnerdmahadi" class="facebook"><i class="bi bi-facebook"></i></a>
+                    <a href="https://www.facebook.com/cnerdmahadi" class="instagram"><i class="bi bi-instagram"></i></a>
+                    <a href="https://www.facebook.com/cnerdmahadi" class="linkedin"><i class="bi bi-linkedin"></i></a>
                 </div>
             </div>
 
             <div class="col-lg-2 col-6 footer-links">
                 <h4>General Links</h4>
                 <ul>
-                    <li><a href="#">Testimonial</a></li>
-                    <li><a href="#">About us</a></li>
-                    <li><a href="#">Team</a></li>
+                <li><a href="{{ route('about') }}">About Us</a></li>
+                <li><a href="{{ route('team') }}">Team</a></li>
+                <li><a href="{{ route('testimonial') }}">Testimonials</a></li>
                 </ul>
             </div>
 

@@ -1,7 +1,7 @@
 @extends('top.app')
 @section('content')
 
-    @include('top.topnav')
+@include('top.topnav_creator')
 
     <section id="home" class="home">
         <div class="container position-relative">
@@ -10,7 +10,7 @@
                     <h2>Welcome to <span>Live To Learn</span></h2>
                     <p>Redefine How You Learn With More And More Fun.</p>
                     <div class="d-flex justify-content-center justify-content-lg-start">
-                        <a href="#learn" class="btn-get-started">Get Started</a>
+                        <a href="{{ route('creatorDash') }}" class="btn-get-started">Get Started</a>
                         {{-- <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a> --}}
                     </div>
                 </div>

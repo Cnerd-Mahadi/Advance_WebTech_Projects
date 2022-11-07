@@ -21,40 +21,41 @@ use App\Http\Controllers\CourseController;
 */
 
 Route::get('/', function () {
-    return view('dashboard');
+    // if($request->cookie('remember') != null){
+    //     if ($request->session()->get('roleCheck') == "STUDENT")
+    //         return redirect()->route('studentDash');
+    //     else
+    //     return redirect()->route('creatorDash');
+    // }
+    return view('login');
 });
 
-Route::get('/pros', function () {
-    return view('pros');
-});
-
-Route::get('/sum', function () {
-    return view('summary');
-});
-
-Route::get('/td', function () {
-    return view('topic_detail');
-});
 Route::get('/about', function () {
     return view('about');
 })->name('about');
 
-Route::get('/student/dashboard',[StudentController::class, 'dashboard'])->name('studentDash');
-Route::get('/student/learnSection',[LearnController::class, 'learn'])->name('learn');
-Route::get('/student/subject/{id}',[LearnController::class, 'subject'])->name('subject');
-Route::get('/student/topic/{id}',[LearnController::class, 'topic'])->name('topic');
-Route::get('/student/retainSection',[RetainController::class, 'retain'])->name('retain');
-Route::get('/student/summary',[RetainController::class, 'summary'])->name('summary');
-Route::post('/student/summarySubmit',[RetainController::class, 'summarySubmit'])->name('summarySubmit');
+Route::get('/team', function () {
+    return view('team');
+})->name('team');
+
+Route::get('/testimonial', function () {
+    return view('testimonial');
+})->name('testimonial');
 
 
+Route::get('/student/dashboard',[StudentController::class, 'dashboard'])->name('studentDash')->middleware('validStudent');
+Route::get('/student/learnSection',[LearnController::class, 'learn'])->name('learn')->middleware('validStudent');
+Route::get('/student/subject/{id}',[LearnController::class, 'subject'])->name('subject')->middleware('validStudent');
+Route::get('/student/topic/{id}',[LearnController::class, 'topic'])->name('topic')->middleware('validStudent');
+Route::get('/student/retainSection',[RetainController::class, 'retain'])->name('retain')->middleware('validStudent');
+Route::get('/student/summary',[RetainController::class, 'summary'])->name('summary')->middleware('validStudent');
+Route::post('/student/summarySubmit',[RetainController::class, 'summarySubmit'])->name('summarySubmit')->middleware('validStudent');
+Route::get('/student/summaryDetail/{id}',[RetainController::class, 'summaryDetail'])->name('summaryDetail')->middleware('validStudent');
 
 
-Route::get('/creator/dashboard',[CreatorController::class, 'dashboard'])->name('creatorDash');
-Route::post('/creator/content',[CreatorController::class, 'createContentSubmit'])->name('content');
-Route::get('/creator/contentDetail/{id}',[CreatorController::class, 'contentDetail'])->name('contentDetail');
-
-
+Route::get('/creator/dashboard',[CreatorController::class, 'dashboard'])->name('creatorDash')->middleware('validCreator');
+Route::post('/creator/content',[CreatorController::class, 'createContentSubmit'])->name('content')->middleware('validCreator');
+Route::get('/creator/contentDetail/{id}',[CreatorController::class, 'contentDetail'])->name('contentDetail')->middleware('validCreator');
 
 Route::get('/login',[LoginController::class,'loginShow'])->name('login');
 Route::post('/login',[LoginController::class,'loginSubmit'])->name('login');

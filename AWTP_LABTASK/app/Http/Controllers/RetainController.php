@@ -14,9 +14,8 @@ class RetainController extends Controller
 
     public function summary()
     {
-        $summaries = Summary::where('student_id', session()->get('profile')->student_id)->get();
+        $summaries = Summary::all();
         return view('student.summary')
-
                 ->with('summaries', $summaries);
 
     }
@@ -30,7 +29,7 @@ class RetainController extends Controller
     );
 
 
-        $request->file('image')->store('summary');
+
         $summary = new Summary();
         $summary->title = $request->title;
         $summary->image = "A";
@@ -45,17 +44,19 @@ class RetainController extends Controller
         Summary::where('summary_id', $summaryTemp->summary_id)
                                 ->update(['image' => $imageName]);
 
+        $request->file('image')->storeAs('public/summary', $imageName);
+
         return redirect()->route('summary');
 
 
     }
 
-    public function contentDetail($id){
-        $content = Content::where('content_id', $id)->first();
-        $contents = Content::where('creator_id', session()->get('profile')->creator_id)->get();
-        return view('creator.content_detail')
-                ->with('content', $content)
-                ->with('contents', $contents)
+    public function summaryDetail($id){
+        $summary = Summary::where('summary_id', $id)->first();
+        $summaries = Summary::where('student_id', session()->get('profile')->student_id)->get();
+        return view('student.summary_detail')
+                ->with('summary', $summary)
+                ->with('summaries', $summaries)
                 ->with('author', session()->get('profile')->name);
     }
 

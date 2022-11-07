@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 
-class UserValidation
+class StudentValidation
 {
     /**
      * Handle an incoming request.
@@ -16,9 +16,9 @@ class UserValidation
      */
     public function handle(Request $request, Closure $next)
     {
-        if($request->session()->get('user'))
+        if($request->session()->get('roleCheck') == "STUDENT")
             return $next($request);
         return redirect()->route('login');
-        
+
     }
 }

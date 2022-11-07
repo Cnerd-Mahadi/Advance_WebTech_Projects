@@ -1,5 +1,5 @@
 @extends('top.app')
-@include('top.topnav')
+@include('top.topnav_creator')
 @section('content')
     <div class="container">
         <div class="main-body">

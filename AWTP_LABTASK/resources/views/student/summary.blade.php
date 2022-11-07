@@ -75,7 +75,7 @@
             <div class="container" data-aos="fade-up">
 
                 <div class="section-header">
-                    <h2>Content Section</h2>
+                    <h2>Summary Gallery</h2>
                     <p>From Most Recent To Least</p>
                 </div>
 
@@ -90,8 +90,14 @@
                                 </div>
 
                                 <h2 class="title">
-                                    <a href="{{ route('contentDetail', ['id' => $summary->summary_id]) }}">{{ $summary->title }}</a>
+                                    <a href="{{ route('summaryDetail', ['id' => $summary->summary_id]) }}">{{ $summary->title }}</a>
                                 </h2>
+
+                                <div class="d-flex align-items-center">
+                                    <div class="post-meta">
+                                      <p class="post-author-list">{{ $summary->student->name }}</p>
+                                    </div>
+                                  </div>
                             </article>
                         </div><!-- End post list item -->
                     @endforeach

@@ -1,4 +1,5 @@
 @extends('top.app')
+@include('top.topnav_general')
 @section('content')
     <section id="home" class="home">
         <div class="container position-relative">
