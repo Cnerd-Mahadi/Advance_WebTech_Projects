@@ -17,7 +17,7 @@
             <div class="icon-boxes position-relative">
                 <div class="container position-relative">
                     <div class="row gy-4 mt-5">
-                        <div class="registration-form ">
+                        <div class="registration-form">
                             <form action="{{route('login')}}" class="form-group" method="post">
                                 @csrf
                                 <div class="form-icon">

@@ -11,5 +11,10 @@ class StudentController extends Controller
         return view('student.dashboard');
     }
 
+    public function pros(){
+        return view('student.pros');
+    }
+
+
 
 }

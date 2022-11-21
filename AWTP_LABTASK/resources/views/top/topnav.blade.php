@@ -11,9 +11,11 @@
                 <li><a href="{{ route('studentDash') }}">Home</a></li>
                 <li><a href="{{ route('learn') }}">Learn</a></li>
                 <li><a href="{{ route('retain') }}">Retain</a></li>
+                <li><a href="{{ route('request') }}">Request Gallery</a></li>
                 <li><a href="{{ route('about') }}">About Us</a></li>
                 <li><a href="{{ route('team') }}">Team</a></li>
                 <li><a href="{{ route('testimonial') }}">Testimonials</a></li>
+                <li><a href="{{ route('pros') }}">Profile</a></li>
                 <li><a href="{{ route('logout') }}">Logout</a></li>
             </ul>
         </nav><!-- .navbar -->

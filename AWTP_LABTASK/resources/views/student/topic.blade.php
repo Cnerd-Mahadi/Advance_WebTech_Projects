@@ -33,7 +33,11 @@
                                 <p>{{ $topic->detail }}</p>
 
                             </div><!-- End post content -->
-                        </article><!-- End blog post -->
+                        </article>
+                        <div class="registration-form">
+                            <a href="{{ route('reqSession', ['id' => $topic->topic_id]) }}" class="btn btn-block create-account">Find A Mentor</a>
+                        </div>
+                        <div><!-- End blog post -->
                     </div>
 
                 </div>

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CreatorController;
 use App\Http\Controllers\LearnController;
+use App\Http\Controllers\RequestController;
 use App\Http\Controllers\RetainController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
@@ -44,6 +45,7 @@ Route::get('/testimonial', function () {
 
 
 Route::get('/student/dashboard',[StudentController::class, 'dashboard'])->name('studentDash')->middleware('validStudent');
+Route::get('/student/pros',[StudentController::class, 'pros'])->name('pros')->middleware('validStudent');
 Route::get('/student/learnSection',[LearnController::class, 'learn'])->name('learn')->middleware('validStudent');
 Route::get('/student/subject/{id}',[LearnController::class, 'subject'])->name('subject')->middleware('validStudent');
 Route::get('/student/topic/{id}',[LearnController::class, 'topic'])->name('topic')->middleware('validStudent');
@@ -51,9 +53,14 @@ Route::get('/student/retainSection',[RetainController::class, 'retain'])->name('
 Route::get('/student/summary',[RetainController::class, 'summary'])->name('summary')->middleware('validStudent');
 Route::post('/student/summarySubmit',[RetainController::class, 'summarySubmit'])->name('summarySubmit')->middleware('validStudent');
 Route::get('/student/summaryDetail/{id}',[RetainController::class, 'summaryDetail'])->name('summaryDetail')->middleware('validStudent');
+Route::get('/student/request',[RequestController::class, 'requestShow'])->name('request')->middleware('validStudent');
+Route::get('/student/reqSession/{id}',[RequestController::class, 'reqSession'])->name('reqSession')->middleware('validStudent');
+
+
 
 
 Route::get('/creator/dashboard',[CreatorController::class, 'dashboard'])->name('creatorDash')->middleware('validCreator');
+Route::get('/creator/proc',[CreatorController::class, 'proc'])->name('proc')->middleware('validCreator');
 Route::post('/creator/content',[CreatorController::class, 'createContentSubmit'])->name('content')->middleware('validCreator');
 Route::get('/creator/contentDetail/{id}',[CreatorController::class, 'contentDetail'])->name('contentDetail')->middleware('validCreator');
 

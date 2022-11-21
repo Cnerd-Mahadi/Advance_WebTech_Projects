@@ -12,6 +12,7 @@
                 <li><a href="{{ route('about') }}">About Us</a></li>
                 <li><a href="{{ route('team') }}">Team</a></li>
                 <li><a href="{{ route('testimonial') }}">Testimonials</a></li>
+                <li><a href="{{ route('proc') }}">Profile</a></li>
                 <li><a href="{{ route('logout') }}">Logout</a></li>
             </ul>
         </nav><!-- .navbar -->

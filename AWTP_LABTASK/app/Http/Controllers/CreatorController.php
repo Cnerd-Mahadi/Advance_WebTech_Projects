@@ -65,4 +65,8 @@ class CreatorController extends Controller
                 ->with('contents', $contents)
                 ->with('author', session()->get('profile')->name);
     }
+
+    public function proc(){
+        return view('creator.proc');
+    }
 }
