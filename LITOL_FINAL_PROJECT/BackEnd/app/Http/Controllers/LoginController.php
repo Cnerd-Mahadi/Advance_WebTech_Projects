@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Cookie;
 
 class LoginController extends Controller
 {
-    public function loginSubmit(Request $request)
+    public function login(Request $request)
     {
         $user = User::where('username', $request->username)
             ->where(

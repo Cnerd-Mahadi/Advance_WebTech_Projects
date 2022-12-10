@@ -9,35 +9,36 @@ use Illuminate\Http\Request;
 use App\Models\Student;
 use Illuminate\Support\Facades\Mail;
 use Symfony\Component\Console\Question\ConfirmationQuestion;
+use Tymon\JWTAuth\JWTAuth;
 
 class RegController extends Controller
 {
 
     public function signUpSubmit(Request $request){
 
-        // $user = new User();
-        // $user->username = $request->username;
-        // $user->password = $request->password;
-        // $user->role_id = 1;
-        // $user->save();
+        $user = new User();
+        $user->username = $request->username;
+        $user->password = $request->password;
+        $user->role_id = 1;
+        $user->save();
 
-        // $user = User::where('username', $request->username)->first();
+        $user = User::where('username', $request->username)->first();
 
 
-        // $student = new  Student();
-        // $student->gender = $request->gender;
-        // $student->age = $request->age;
-        // $student->address = $request->address;
-        // $student->dob = $request->dob;
-        // $student->email = $request->email;
-        // $student->phone = $request->phone;
-        // $student->user_id = $user->user_id;
-        // $student->save();
+        $student = new  Student();
+        $student->gender = $request->gender;
+        $student->age = $request->age;
+        $student->address = $request->address;
+        $student->dob = $request->dob;
+        $student->email = $request->email;
+        $student->phone = $request->phone;
+        $student->user_id = $user->user_id;
+        $student->save();
 
-        // $data = [
-        //     "toEmail"=>$student->email,
-        //     "toName"=>$user->username
-        // ];
+        $data = [
+            "toEmail"=>$student->email,
+            "toName"=>$user->username
+        ];
 
         if($request->emailCheck == "on"){
 
@@ -45,6 +46,7 @@ class RegController extends Controller
             Mail::to($request->email)->send(new ConfirmationMail($body));
             return "MAIL SENT!";
         }
+
 
         return $request;
 

@@ -9,6 +9,7 @@ use App\Http\Requests\StoreCreatorRequest;
 use App\Http\Requests\UpdateCreatorRequest;
 use App\Models\Subject;
 use App\Models\Topic;
+use App\Models\User;
 use stdClass;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -59,7 +60,34 @@ class CreatorController extends Controller
         return $object;
     }
 
-    public function proc(){
-        return view('creator.proc');
+    public function updateCreator(Request $request){
+
+        User::where('user_id', $request->id)
+            ->update([
+                'username' => $request->username
+            ]);
+
+        Creator::where('user_id', $request->id)
+            ->update([
+                'age' => $request->age,
+                'bio' => $request->bio,
+                'email' => $request->email,
+                'phone' => $request->phone
+            ]);
+
+        return $request;
+    }
+
+    public function newCreatorData(Request $request){
+
+        $user = User::where('user_id', $request->input("user_id"))->first();
+        $creator = Creator::where('user_id', $request->input("user_id"))->first();
+        $object = new stdClass();
+                $object->user = $creator;
+                $object->role = "CREATOR";
+                $object->name = $user->username;
+                return $object;
+
+
     }
 }

@@ -13,6 +13,7 @@ import { CDetails } from "./pages/creator/Details";
 import { SummaryDetails } from "./pages/student/SummaryDetails";
 import { Content } from "./pages/student/Content";
 import { Details } from "./pages/student/Details";
+import { Profile } from "./pages/student/Profile";
 
 
 export const Router = () => {
@@ -61,7 +62,11 @@ export const Router = () => {
         {
           path: "topic/:topicId",
           element: <Details />
-        }
+        },
+        {
+          path: "profile",
+          element: <Profile />
+        },
       ]
     },
     {
@@ -75,7 +80,11 @@ export const Router = () => {
         {
           path: "content/:contentId",
           element: <CDetails />
-        }
+        },
+        {
+          path: "profile",
+          element: <Profile />
+        },
 
       ]
     }
