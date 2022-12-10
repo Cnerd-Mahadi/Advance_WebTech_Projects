@@ -20,4 +20,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::post('/submit',[StudentController::class,'submitForm']);
+Route::post('/auth-save',[StudentController::class,'authSave']);
+Route::post('/login',[StudentController::class,'login']);
 Route::get('/show',[StudentController::class,'showAllStudent']);

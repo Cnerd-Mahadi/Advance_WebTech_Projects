@@ -14,6 +14,7 @@ document.querySelector(".submit-button").addEventListener("click", function () {
   var male = document.querySelector("#male");
   var female = document.querySelector("#female");
   var country = document.querySelector("#country");
+  var password = document.querySelector("#password");
 
   var flag = true;
 
@@ -43,6 +44,7 @@ document.querySelector(".submit-button").addEventListener("click", function () {
       name: name.value,
       email: email.value,
       gender: gender,
+      password: password.value,
       country: country.value,
     };
 

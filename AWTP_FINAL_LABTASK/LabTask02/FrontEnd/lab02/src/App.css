@@ -1,0 +1,46 @@
+header {
+  background-color: #04293A;
+}
+
+.navbar-brand {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-size: 2rem;
+  margin-left: 20px;
+}
+
+.navbar {
+  padding-bottom: 1rem;
+}
+
+.nav-item {
+  padding: 0 18px;
+}
+
+.nav-link {
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+
+.form-div {
+  margin: 1% 30%;
+  background-color: #EEEEEE;
+  padding: 4%;
+  color: #0F0E0E;
+  border-radius: 4%;
+
+}
+
+.form-text {
+  color: #2C3333;
+}
+
+.btn {
+  margin: 10% 13% 0% 13%;
+}
+
+h1 {
+  color: #222831;
+  text-align: center;
+  margin-bottom: 13%;
+}
